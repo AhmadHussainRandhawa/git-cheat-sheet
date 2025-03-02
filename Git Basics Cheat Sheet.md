@@ -11,9 +11,13 @@
 - `git status`              # Check status of changes
 - `git add <file>`          # Stage a file
 - `git add .`               # Stage all changes
+- `git add -A`              # In case of modification, deletion
 - `git commit -m "Message"` # Commit changes
 - `git commit --amend -m "New Message"`  # Include new changes to the last commit
 
+- `git push origin main --force`
+- `git fetch --all`
+- `git reset --hard origin/main`
 
 ## Branching
 - `git branch`                          # List branches
@@ -59,9 +63,6 @@
 - `git ls-remote origin`  				    # Shows the references (branches, tags, etc) and their corresponding commit hashes 
 - `git pull origin main --allow-unrelated-histories`	# case i have some extra files on remote repository
 
-## Resetting & Reverting
-- `git reset --hard HEAD~1`     # Undo last commit, remove changes
-
 ## Logs & History: Shows the commit history
 - `git reflog`	                # Shows the history of HEAD.
 - `git log`                     # Show commit history
@@ -101,8 +102,8 @@
 - `git stash pop --index 1`
 - `git stash pop --index stash@{2} -f`	# force the stash to apply (Warning: it will permanently removes the uncommit changes)
 - `git stash apply stash@{2}`		# Apply the stash without removing it from the stash list (useful for resolving conflicts).
-- `git stash drop stash@{3}`      # Remove a specific stash
-- `git stash clear`			# Clear all stashes
+- `git stash drop stash@{3}`        # Remove a specific stash
+- `git stash clear`			        # Clear all stashes
 
 
 ## Ignoring Files
@@ -111,7 +112,7 @@
 
 ## Useful Aliases
 - `git config --global alias.cm "commit -m"`  # Sets cm as a shortcut for commit -m 
-- `git config --global --unset alias.cm`   # Remove the shortcut
+- `git config --global --unset alias.cm`      # Remove the shortcut
 - `git config --global alias.graph "log --all --oneline --graph --decorate"`  # git graph = git log --all --graph --oneline... 
 
 ## rm always removed a file from git tracking.
@@ -128,14 +129,14 @@
 
 ## Undoing Things
 - `git show <commit-id>`                # Show details of a commit
-- `git show --name-only <commit_hash>`    # Displays the files in specific commit.
+- `git show --name-only <commit_hash>`  # Displays the files in specific commit.
 - `git show <commit-hash>:<f_name>`		# Displays the content of specific file.
 
-- `git checkout -- <filename>`			# Just discard your changes in working directory with last commit.
-- `git checkout 9ddbs -- file.txt`		# Recover the file data from specific commit.
-
-- `git restore --staged <filename>`		# Unstage a file from the staging area
-- `git restore --source=<commit> --worktree --staged`	# Overwrite all the files in your current branch with the state of the specific commit.
+- `git reset --hard HEAD`                              # Undo last commit, remove all the changes even if it is staged.
+- `git restore --staged <filename>`		               # just for unstaging the file.
+- `git restore <file-name>`                            # Restore the file by comparing with last commit. only if not staged
+- `git restore --source=<commit> -- file.txt`		   # Just restore a specific file. 
+- `git restore --source=<commit> --worktree --staged`  # Restore the whole project from specific commit
 
 -----------------Detached Head-----------------
 
@@ -149,4 +150,8 @@
 - `cat <file-name>`     # Display the data of the file.
 - `vim <file-name>`		# it let's you create, view and edit the file.
 - `ls -a`               # List all the files including the hidden file	
+
+
+- `git ls-tree -r <c_hash>:<d_name>`        # Shows the full file structure.
+- `git branch -m old-branch-name new-branch-name`           # Rename the branch
 
