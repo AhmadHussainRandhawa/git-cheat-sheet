@@ -120,6 +120,20 @@
 - `git rebase`
 
 
+## Git tags: Tags are like sticky notes that you can attach to your commits. (use when release)
+
+- `git tag`                                         # List all tags
+- `git tag v1.0.0`                                  # Creates a simple tag at the current commit 
+- `git tag -a v1.0.0 -m "Release version 1.0.0"`    # Annotated Tag
+- `git tag <tag-name> <commit-hash>"`               # Tag a Specific Commit (also can use -m '')
+
+- `git push origin <tag-name>`       # Uploads one specific tag to GitHub
+- `git push origin --tags`           # Uploads all local tags to remote
+
+- `git tag -d <tag-name>`            # Delete a Local Tag
+- `git push origin --delete v1.0.0`  # Removes the tag from GitHub
+
+
 ## Undoing Things
 - `git show <commit-id>`                # Show details of a commit
 - `git show --name-only <commit_hash>`  # Displays the files in specific commit.
