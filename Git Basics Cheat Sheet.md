@@ -187,6 +187,6 @@
 - `ls -a`               # List all the files including the hidden file	
 
 
-- `git ls-tree -r <c_hash>:<d_name>`                        # Shows the full file structure.
-- `git branch -m old-branch-name new-branch-name`           # Rename the branch
+- `git ls-tree -r <c_hash>:<d_name>`                    # Shows the full file structure.
+- `git branch -m old-branch-name new-branch-name`       # Rename the branch
  
